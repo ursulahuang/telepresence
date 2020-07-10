@@ -67,7 +67,7 @@ Successfully tagged hello-dev:latest
 We'll use Telepresence to swap the hello-world deployment with the local Docker image. Behind the scenes, Telepresence invokes `docker run`, so it supports any arguments you can pass to `docker run`. In this case, we're going to also mount our local directory to `/usr/src/app` in your Docker container. Make sure your current working directory is the `hello-world` directory, since we're going to mount that directly into the container.
 
 ```console
-$ telepresence --swap-deployment hello-world --docker-run --rm -it -v $(pwd):/usr/src/app hello-dev
+$ telepresence --swap-deployment hello-world --expose 8000 --docker-run --rm -it -v $(pwd):/usr/src/app hello-dev
 T: Volumes are rooted at $TELEPRESENCE_ROOT. See https://telepresence.io/howto/volumes.html for details.
 T: Starting network proxy to cluster by swapping out Deployment hello-world with a proxy
 T: Forwarding remote port 8000 to local port 8000.
